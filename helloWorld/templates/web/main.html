@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Worm</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/htmlStyle.css' %}">
+
+    <style>
+        body {
+          background-image: url("{% static 'images/background.jpg' %}");
+          background-size: cover;
+          margin:0;
+        }
+    </style>
+
+  </head>
+
+<body>
+    <header>
+        <div class="bar">
+            <ul>
+                <li class="logo"><img src="{% static 'images/icon.svg' %}">BOOK WORM</li>
+                <li class="index"><a href="{% url 'index' %}">HOME</a></li>
+                <li class="index"><a href="{% url 'shelf' %}">SHELF</a></li>
+                <li class="index"><a href="{% url 'login' %}">LOGIN</a></li>
+            </ul>
+        </div>
+    </header>
+
+    {% block loginForm %}
+    <div class="container">
+        <div class="apple"><img src="{% static 'images/icon.svg' %}"></div>
+        <h1>Find Your Book</h1>
+        <div class="search">  
+            <input type="text" id="input-box" placeholder="Search Your Book" onkeydown="searchKey(event)">
+            <button onclick="search()">Search</button>
+        </div>
+        <ul class="search-result">  
+        </ul>
+        <div class="loading-spinner" style="display: none;">
+        </div>
+    </div>
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2024 Book Worm. All rights reserved. <a href="https://github.com/rat-atouille/Personal-Projects/tree/main/Book%20Worm" target="_blank"><i class="fa fa-github" style="font-size:16px"></i></a></p>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
