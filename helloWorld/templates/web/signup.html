@@ -1,0 +1,22 @@
+{% extends "web/main.html" %}
+
+  {% block loginForm %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+
+  <div class="sign-container">
+    <div style="text-align: center;">Register</div>
+    <form method = "">
+      {% csrf_token %}
+      <label for="uname">Info</label>
+      <input type="text" placeholder="Enter name" name="uname" required>
+      <input type="text" placeholder="Enter user name" name="uid" required>
+      <input type="text" placeholder="Enter email" name="uemail" required>
+      <label for="psw">Password</label>
+      <input type="password" placeholder="Enter Password" name="psw1" required>
+      <input type="password" placeholder="Re-enter Password" name="psw2" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+  <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

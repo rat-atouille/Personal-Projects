@@ -1,0 +1,23 @@
+{% extends "web/main.html" %}
+
+  {% block loginForm %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}"> 
+
+  <div class="sign-container">
+    <div class="userLogo"><img src="{% static 'images/user.png' %}"></div>
+    <div style="text-align: center;">Welcome!</div>
+    <form method = "">
+      {% csrf_token %}
+      <label for="uname">ID</label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw">Password</label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <span class="wrong">Wrong ID or Password!</span>
+      <a href="{% url 'signup' %}">Don't have account?</a>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
